@@ -25,12 +25,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./design/desktop-active-states.jpg)
+![](./Screenshot%20Desktop.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/jaswanthsngp/INT219-Project
+- Live Site URL: https://jaswanthsngp.github.io/INT219-Project/
 
 ## Built with
 

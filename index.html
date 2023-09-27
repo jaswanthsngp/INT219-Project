@@ -7,60 +7,68 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="big-style.css" media="screen and (min-width: 425px)">
-    <link rel="stylesheet" href="small-style.css" media="screen and (max-width: 425px)">
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body>
+  
+  <body class="flex">
     <header>
       <img src="./images/logo.svg" alt="Shortly Logo">
-      <span>&#9776;</span>
+      <span class="big-invisible">&#8801;</span>
     </header>
 
-    <nav>
-      <li>Features</li>
-      <li>Pricing</li>
-      <li>Resources</li>
+    <nav class="flex">
+      <ul class="flex">
+        <li><a href="">Features</a></li>
+        <li><a href="">Pricing</a></li>
+        <li><a href="">Resources</a></li>
+      </ul>
       <!-- With a gap -->
-      <li>Login</li>
-      <li>Sign Up</li>
+      <ul class="flex">
+        <li><a href="">Login</a></li>
+        <li><a href="">Sign Up</a></li>
+      </ul>
     </nav>
 
-    <article>
-      <div>
+    <article class="flex">
+      <div class="intro flex">
+        <div class="intro-text flex">
+          <h1>More than just shorter links</h1>
+          <p>
+            Build your brand's recognition and get detailed insights
+            on how your links are performing.
+          </p>
+          <a href="" target="_blank" rel="noopener noreferrer">Get Started</a>
+        </div>
         <img src="./images/illustration-working.svg" alt="">
-        <h2>More than just shorter links</h2>
-        <p>
-          Build your brand's recognition and get detailed insights
-          on how your links are performing.
-        </p>
-        <a href="" target="_blank" rel="noopener noreferrer">Get Started</a>
       </div>
 
-      <form action="" method="post">
-        <input type="text" name="" id="" placeholder="Shorten a link here...">
+      <form action="" method="post" class="flex">
+        <input type="text" name="" id="shorten-ip" placeholder="Shorten a link here...">
+        <button type="submit" id="shorten-submit">Shorten It!</button>
         <span class="error"></span>
-        <button type="submit">Shorten It!</button>
       </form>
 
-      <div class="storedLinks">
-        <div class="link-card">
-          <div class="original"></div>
-          <div class="shortened"></div>
+      <div class="stored-links flex">
+        <div class="link-card flex">
+          <div class="link-text flex">
+            <span class="original">https://example.com</span>
+            <span class="shortened">https://rel.link/abcd</span>
+          </div>
           <button type="button">Copy</button>
         </div>
       </div>
 
       <div class="advanced-statistics">
-        <h2>Advance Statistics</h2>
+        <h2>Advanced Statistics</h2>
         <p>
           Track how your links are performing across the web with our
           advanced statistics dashboard.
         </p>
       </div>
 
-      <div class="features-main">
+      <div class="features-main flex">
         <div class="card">
-          <img src="./images/icon-brand-recognition.svg" alt="">
+          <img src="./images/icon-brand-recognition.svg" alt="" class="desc-icon">
           <h2>Brand Recognition</h2>
           <p>
             Boost your brand recognition with each click. Generic links don't
@@ -69,7 +77,7 @@
         </div>
 
         <div class="card">
-          <img src="./images/icon-detailed-records.svg" alt="">
+          <img src="./images/icon-detailed-records.svg" alt="" class="desc-icon">
           <h2>Detailed Records</h2>
           <p>
             Gain insights into who is clicking your links. Knowing when and where
@@ -78,7 +86,7 @@
         </div>
 
         <div class="card">
-          <img src="./images/icon-fully-customizable.svg" alt="">
+          <img src="./images/icon-fully-customizable.svg" alt="" class="desc-icon">
           <h2>Fully Customizable</h2>
           <p>
             Improve brand awareness and content discoverability through customizable
@@ -86,55 +94,53 @@
           </p>
         </div>
       </div>
-
-      <div class="boost-your-links">
-        <h2>Boost you links today</h2>
-        <a href="#" target="_blank" rel="noopener noreferrer">Get Started</a>
-      </div>
     </article>
 
-    <footer>
-      <div class="logo"><img src="./images/logo.svg" alt="Shortly Logo"></div>
+    <article class="boost-your-links">
+      <h2>Boost your links today</h2>
+      <p><a href="#" target="_blank" rel="noopener noreferrer">Get Started</a></p>
+    </article>
+    
+    <footer class="flex">
+      <div class="logo"><h3>Shortly</h3></div>
       <div class="features-foot">
-        <h3>Features</h3>
+        <h4>Features</h4>
         <ul>
-          <li><a href="" target="_blank" rel="noopener noreferrer">Link Shortening</a></li>
-          <li><a href="" target="_blank" rel="noopener noreferrer">Branded Links</a></li>
-          <li><a href="" target="_blank" rel="noopener noreferrer">Analytics</a></li>
+          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Link Shortening</a></a></li>
+          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Branded Links</a></a></li>
+          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Analytics</a></a></li>
         </ul>
       </div>
       <div class="features-foot">
-        <h3>Resources</h3>
+        <h4>Resources</h4>
         <ul>
-          <li><a href="" target="_blank" rel="noopener noreferrer">Blog</a></li>
-          <li><a href="" target="_blank" rel="noopener noreferrer">Developers</a></li>
-          <li><a href="" target="_blank" rel="noopener noreferrer">Support</a></li>
+          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Blog</a></a></li>
+          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Developers</a></a></li>
+          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Support</a></a></li>
         </ul>
       </div>
       <div class="features-foot">
-        <h3>Company</h3>
+        <h4>Company</h4>
         <ul>
-          <li><a href="" target="_blank" rel="noopener noreferrer">About</a></li>
-          <li><a href="" target="_blank" rel="noopener noreferrer">Our Team</a></li>
-          <li><a href="" target="_blank" rel="noopener noreferrer">Careers</a></li>
-          <li><a href="" target="_blank" rel="noopener noreferrer">Contact</a></li>
+          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">About</a></a></li>
+          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Our Team</a></a></li>
+          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Careers</a></a></li>
+          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Contact</a></a></li>
         </ul>
       </div>
-      <div>
-        <ul>
-          <li><a href="" target="_blank" rel="noopener noreferrer">
-            <img src="./images/icon-facebook.svg" alt="facebook">
-          </a></li>
-          <li><a href="" target="_blank" rel="noopener noreferrer">
-            <img src="./images/icon-twitter.svg" alt="twitter">
-          </a></li>
-          <li><a href="" target="_blank" rel="noopener noreferrer">
-            <img src="./images/icon-pinterest.svg" alt="pinterest">
-          </a></li>
-          <li><a href="" target="_blank" rel="noopener noreferrer">
-            <img src="./images/icon-instagram.svg" alt="instagram">
-          </a></li>
-        </ul>
+      <div class="icons-foot flex">
+        <span><a href="" target="_blank" rel="noopener noreferrer">
+          <img src="./images/icon-facebook.svg" alt="facebook">
+        </a></span>
+        <span><a href="" target="_blank" rel="noopener noreferrer">
+          <img src="./images/icon-twitter.svg" alt="twitter">
+        </a></span>
+        <span><a href="" target="_blank" rel="noopener noreferrer">
+          <img src="./images/icon-pinterest.svg" alt="pinterest">
+        </a></span>
+        <span><a href="" target="_blank" rel="noopener noreferrer">
+          <img src="./images/icon-instagram.svg" alt="instagram">
+        </a></span>
       </div>
     </footer>
   </body>
@@ -143,5 +149,8 @@
 
 <!-- 
   Skeleton - 1.5hr on 19-09-2023
-
+  CSS done till nav bar - 1hr on  25-09-2023
+  CSS done till stored links - 2hr on 26-09-2023
+  Boost Your Links and Footer Done - 1.5hr on 26-09-2023
+  Big Screen Styling Done - 1hr on 27-09-2023
  -->
