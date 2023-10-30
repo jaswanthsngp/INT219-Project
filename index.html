@@ -7,89 +7,183 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="./index.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Styling and local functinalities done, have to deal with APIs now -->
+    <style>
+      :root {
+          --cyan: hsl(180, 66%, 49%);
+          --dark-violet: hsl(257, 27%, 26%);
+          --red: hsl(0, 87%, 67%);
+          --gray: hsl(0, 0%, 75%);
+          --grayish-violet: hsl(257, 7%, 63%);
+          --very-dark-blue: hsl(255, 11%, 22%);
+          --very-dark-violet: hsl(260, 8%, 14%);
+          --transparent: hsla(0, 0%, 100%, 0);
+      }
+      .fg--cyan {
+        color: var(--cyan)
+      }
+      .bg--cyan {
+        background-color: var(--cyan);
+      }
+      .bg--cyan:not(#nav):hover {
+        background-color: hsla(180, 66%, 49%, 0.7);
+      }
+      .bg--dark-violet {
+        background-color: var(--dark-violet);
+      }
+      .bg--very-dark-violet {
+        background-color: var(--very-dark-violet);
+      }
+      .bg--very-dark-blue {
+        background-color: var(--very-dark-blue);
+      }
+      body {
+        background: linear-gradient(white, white 40rem, #eff1f7 40rem, #eff1f7);
+      }
+      #nav {
+        display: none;
+      }
+      .desc-icon {
+        margin-top: -2rem;
+        margin-bottom: 1rem;
+      }
+      .intro-img {
+        height: 250px;
+      }
+      form {
+        background-image: url(./images/bg-shorten-mobile.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .features-main {
+        background: linear-gradient(0.25turn, transparent 49%, var(--cyan) 49% 51%, transparent 51%);
+      }
+      .boost-your-links {
+        background-image: url(./images/bg-boost-mobile.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      @media screen and (min-width: 768px) {
+        body {
+          background: linear-gradient(white, white 36.3rem, #eff1f7 36.3rem, #eff1f7);
+          overflow-x: hidden;
+        }
+        #nav {
+          display: flex;
+          background-color: var(--transparent);
+        }
+        nav.bg-secondary {
+          background-color: white !important;
+        }
+        .intro-img {
+          height: 450px;
+        }
+        .intro-text>h1, .intro-text>p {
+          text-align: left !important;
+        }
+        .intro-text>a {
+          align-self: start;
+        }
+        form {
+          background-image: url(./images/bg-shorten-desktop.svg);
+        }
+        .features-main {
+          height: 20rem !important;
+          background: linear-gradient(transparent 49%, var(--cyan) 49% 51%, transparent 51%);
+        }
+        .boost-your-links {
+          background-image: url(./images/bg-boost-desktop.svg);
+        }
+      }
+    </style>
   </head>
   
-  <body class="flex">
-    <header class="flex">
+  <body class="flex d-flex flex-column justify-content-center align-items-center flex-md-row flex-md-wrap">
+    <header class="flex d-flex flex-row justify-content-between align-items-center col-12 p-4 col-md-auto">
       <img src="./images/logo.svg" alt="Shortly Logo">
-      <span id="nav-button">&#8801;</span>
+      <span id="nav-button" class="display-4 fw-semibold text-body-secondary d-md-none" role="button">&#8801;</span>
     </header>
 
-    <nav class="flex">
-      <ul class="flex">
-        <li><a href="">Features</a></li>
-        <li><a href="">Pricing</a></li>
-        <li><a href="">Resources</a></li>
+    <nav class="flex d-md-flex flex-column justify-content-center align-items-center col-10 rounded-3
+                flex-md-row justify-content-md-between bg--cyan" id="nav">
+      <ul class="flex d-flex flex-column justify-content-center align-items-center list-unstyled col-10 p-2
+                 flex-md-row col-md-auto m-0">
+        <li class="p-2"><a href="" class="text-decoration-none text-body-tertiary fw-semibold fs-5">Features</a></li>
+        <li class="p-2"><a href="" class="text-decoration-none text-body-tertiary fw-semibold fs-5">Pricing</a></li>
+        <li class="p-2"><a href="" class="text-decoration-none text-body-tertiary fw-semibold fs-5">Resources</a></li>
       </ul>
       <!-- With a gap -->
-      <ul class="flex">
-        <li><a href="">Login</a></li>
-        <li><a href="">Sign Up</a></li>
+      <ul class="flex d-flex flex-column justify-content-center align-items-center list-unstyled col-10 p-2 
+                 flex-md-row col-md-auto m-0">
+        <li class="p-2"><a href="" class="text-decoration-none text-body-tertiary fw-semibold fs-5">Login</a></li>
+        <li class="p-2"><a href="" class="text-decoration-none text-body-tertiary fw-semibold fs-5">Sign Up</a></li>
       </ul>
     </nav>
 
-    <article class="flex">
-      <div class="intro flex">
-        <div class="intro-text flex">
-          <h1>More than just shorter links</h1>
-          <p>
+    <article class="flex d-flex flex-column justify-content-center align-items-center col-12 col-md-10">
+      <div class="intro flex d-flex flex-column-reverse justify-content-center align-items-center col-12 flex-md-row justify-content-md-start">
+        <div class="intro-text flex d-flex flex-column justify-content-center align-items-center m-md-3 col-md-6">
+          <h1 class="display-3 fw-bold text-center">More than just shorter links</h1>
+          <p class="fs-5 fw-bold text-center text-secondary">
             Build your brand's recognition and get detailed insights
             on how your links are performing.
           </p>
-          <a href="" target="_blank" rel="noopener noreferrer">Get Started</a>
+          <a href="" target="_blank" rel="noopener noreferrer" role=button class="btn rounded-5 fw-bold bg--cyan text-white">Get Started</a>
         </div>
-        <img src="./images/illustration-working.svg" alt="">
+        <img src="./images/illustration-working.svg" alt="" class="intro-img">
       </div>
 
-      <form action="" method="post" class="flex">
-        <input type="text" name="" id="shorten-ip" placeholder="Shorten a link here...">
-        <button type="submit" id="shorten-submit">Shorten It!</button>
-        <span id="error"></span>
+      <form action="" method="post" class="flex d-flex flex-row flex-wrap justify-content-center align-items-center w-100 p-3 rounded-2 flex-md-row bg--dark-violet">
+        <input type="text" name="" id="shorten-ip" class="col-12 m-3 p-2 rounded col-md-10" placeholder="Shorten a link here...">
+        <button type="submit" id="shorten-submit" class="btn bg--cyan rounded col-12 col-md-auto fw-bold text-white">Shorten It!</button>
+        <span id="error" class="col-12 fs-6 text-danger fst-italic col-md-11"></span>
       </form>
 
-      <div class="stored-links flex">
-        <div class="link-card flex">
-          <div class="link-text flex">
-            <span class="original">https://example.com</span>
-            <span class="shortened">https://rel.link/abcd</span>
+      <div id="shortened-links" class="stored-links flex d-flex flex-column justify-content-center align-items-center col-12 p-2">
+        <!-- <div class="link-card flex d-flex flex-column justify-content-center align-items-center col-12 p-2 bg-white rounded-1 flex-md-row">
+          <div class="link-text flex d-flex flex-column justify-content-center align-items-center col-12 p-2 flex-md-row justify-content-md-between col-md-11">
+            <span class="original col-12 m-1 col-md-auto">https://example.com</span>
+            <span class="shortened col-12 m-1 fg--cyan col-md-auto">https://rel.link/abcd</span>
           </div>
-          <button type="button">Copy</button>
-        </div>
+          <button type="button" class="btn col-12 m-1 p-2 col-md-1 bg--cyan fw-bold text-white copy" onclick="copyLink(this)">Copy</button>
+        </div> -->
       </div>
 
-      <div class="advanced-statistics">
-        <h2>Advanced Statistics</h2>
-        <p>
+      <div class="advanced-statistics w-100 text-center py-5">
+        <h2 class="fw-bold">Advanced Statistics</h2>
+        <p class="fw-bold col-md-6 m-auto text-secondary">
           Track how your links are performing across the web with our
           advanced statistics dashboard.
         </p>
       </div>
 
-      <div class="features-main flex">
-        <div class="card-css">
-          <img src="./images/icon-brand-recognition.svg" alt="" class="desc-icon">
-          <h2>Brand Recognition</h2>
+      <div class="features-main flex d-flex flex-column justify-content-between align-items-center mb-4 flex-md-row px-md-0">
+        <div class="card-css col-9 m-4 mt-0 text-center bg-white rounded-3 text-md-start col-md-3 m-md-0 px-md-3 align-self-md-start">
+          <img src="./images/icon-brand-recognition.svg" alt="" class="desc-icon col-3 display-1 rounded-circle object-fit-none bg--very-dark-blue">
+          <h4 class="fw-bold">Brand Recognition</h4>
           <p>
             Boost your brand recognition with each click. Generic links don't
             mean a thing. Branded links help instil confidence in your content.
           </p>
         </div>
 
-        <div class="card-css">
-          <img src="./images/icon-detailed-records.svg" alt="" class="desc-icon">
-          <h2>Detailed Records</h2>
+        <div class="card-css col-9 m-4 text-center bg-white rounded-3 text-md-start col-md-3 m-md-0 px-md-3">
+          <img src="./images/icon-detailed-records.svg" alt="" class="desc-icon col-3 display-1 rounded-circle object-fit-none bg--very-dark-blue">
+          <h4 class="fw-bold">Detailed Records</h4>
           <p>
             Gain insights into who is clicking your links. Knowing when and where
             people engage with your content helps inform better decisions.
           </p>
         </div>
 
-        <div class="card-css">
-          <img src="./images/icon-fully-customizable.svg" alt="" class="desc-icon">
-          <h2>Fully Customizable</h2>
+        <div class="card-css col-9 m-4 mb-0 text-center bg-white rounded-3 text-md-start col-md-3 m-md-0 px-md-3 align-self-md-end">
+          <img src="./images/icon-fully-customizable.svg" alt="" class="desc-icon col-3 display-1 rounded-circle object-fit-none bg--very-dark-blue">
+          <h4 class="fw-bold">Fully Customizable</h4>
           <p>
             Improve brand awareness and content discoverability through customizable
             links, supercharging audience engagement.
@@ -98,50 +192,64 @@
       </div>
     </article>
 
-    <article class="boost-your-links">
-      <h2>Boost your links today</h2>
-      <p><a href="#" target="_blank" rel="noopener noreferrer">Get Started</a></p>
+    <article class="boost-your-links w-100 py-md-5 bg--dark-violet">
+      <h2 class="display-3 fw-bold text-center text-white">Boost your links today</h2>
+      <p class="w-100 text-center">
+        <a href="#" target="_blank" rel="noopener noreferrer" role="button" class="btn text-white bg--cyan rounded-5 fw-bold">Get Started</a>
+      </p>
     </article>
     
-    <footer class="flex">
-      <div class="logo"><h3>Shortly</h3></div>
-      <div class="features-foot">
-        <h4>Features</h4>
-        <ul>
-          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Link Shortening</a></a></li>
-          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Branded Links</a></a></li>
-          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Analytics</a></a></li>
+    <footer class="flex d-flex flex-column justify-content-center align-items-center w-100 text-center bg--very-dark-violet flex-md-row justify-content-md-around align-items-md-start py-md-5">
+      <div class="logo my-3 col-md-3 my-md-0"><h3 class="text-white h1 fw-bold text-md-start">Shortly</h3></div>
+      <div class="features-foot col-md-auto">
+        <h4 class="fw-bold text-white h4 text-md-start mb-md-3">Features</h4>
+        <ul class="list-unstyled">
+          <li class="text-md-start my-md-1"><a href="" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white fs-6">Link Shortening</a></li>
+          <li class="text-md-start my-md-1"><a href="" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white fs-6">Branded Links</a></li>
+          <li class="text-md-start my-md-1"><a href="" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white fs-6">Analytics</a></li>
         </ul>
       </div>
-      <div class="features-foot">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Blog</a></a></li>
-          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Developers</a></a></li>
-          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Support</a></a></li>
+      <div class="features-foot col-md-auto">
+        <h4 class="fw-bold text-white h4 text-md-start mb-md-3">Resources</h4>
+        <ul class="list-unstyled">
+          <li class="text-md-start my-md-1"><a href="" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white fs-6">Blog</a></li>
+          <li class="text-md-start my-md-1"><a href="" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white fs-6">Developers</a></li>
+          <li class="text-md-start my-md-1"><a href="" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white fs-6">Support</a></li>
         </ul>
       </div>
-      <div class="features-foot">
-        <h4>Company</h4>
-        <ul>
-          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">About</a></a></li>
-          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Our Team</a></a></li>
-          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Careers</a></a></li>
-          <li><a href=""><a href="" target="_blank" rel="noopener noreferrer">Contact</a></a></li>
+      <div class="features-foot col-md-auto">
+        <h4 class="fw-bold text-white h4 text-md-start mb-md-3">Company</h4>
+        <ul class="list-unstyled">
+          <li class="text-md-start my-md-1"><a href="" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white fs-6">About</a></li>
+          <li class="text-md-start my-md-1"><a href="" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white fs-6">Our Team</a></li>
+          <li class="text-md-start my-md-1"><a href="" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white fs-6">Careers</a></li>
+          <li class="text-md-start my-md-1"><a href="" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white fs-6">Contact</a></li>
         </ul>
       </div>
-      <div class="icons-foot flex">
+      <div class="icons-foot flex d-flex flex-row justify-content-around align-items-center col-12 col-md-3">
         <span><a href="" target="_blank" rel="noopener noreferrer">
-          <img src="./images/icon-facebook.svg" alt="facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white" width="30px">
+            <path
+                d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z" />
+          </svg>
         </a></span>
         <span><a href="" target="_blank" rel="noopener noreferrer">
-          <img src="./images/icon-twitter.svg" alt="twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="white" width="30px">
+            <path
+                d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+          </svg>
         </a></span>
         <span><a href="" target="_blank" rel="noopener noreferrer">
-          <img src="./images/icon-pinterest.svg" alt="pinterest">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" fill="white" width="30px">
+            <path
+                d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z" />
+          </svg>
         </a></span>
         <span><a href="" target="_blank" rel="noopener noreferrer">
-          <img src="./images/icon-instagram.svg" alt="instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white" width="30px">
+            <path
+                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+          </svg>
         </a></span>
       </div>
     </footer>

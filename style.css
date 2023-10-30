@@ -234,7 +234,7 @@ form {
     object-fit: none;
 }
 
-.card-css>h2 {
+.card-css>h4 {
     margin: 0.5rem 0;
 }
 
@@ -305,13 +305,21 @@ footer.flex {
 }
 
 .features-foot>ul>li>a:hover {
-    text-decoration: underline;
     color: var(--cyan);
 }
 
 .icons-foot {
     width: 20%;
-    justify-content: space-evenly;
+    justify-content: space-around;
+}
+
+.icons-foot>span>a>svg {
+    width: 1.5rem;
+    fill: var(--grayish-violet)
+}
+
+.icons-foot>span>a>svg:hover {
+    fill: var(--cyan)
 }
 
 .intro-text>a:hover,
